@@ -17,8 +17,6 @@ if (!uri) {
 }
 
 const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
     ssl: true,
     tlsAllowInvalidCertificates: true // Add this line to bypass certificate validation (not recommended for production)
 });
