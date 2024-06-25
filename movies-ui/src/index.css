@@ -35,9 +35,9 @@ body {
 }
 
 .search-bar {
-  width: calc(100% - 120px); /* Adjusted width to make space for the search button */
+  width: calc(100% - 120px); 
   padding: 15px;
-  margin-right: 10px; /* Add space between search bar and button */
+  margin-right: 10px; 
   border: 1px solid #ccc;
   border-radius: 25px;
   background-color: #F4F0F0;
@@ -50,7 +50,7 @@ body {
   font-weight: bold;
   border: none;
   border-radius: 25px;
-  padding: 15px 20px; /* Matching the padding of the search bar */
+  padding: 15px 20px; 
   cursor: pointer;
 }
 
@@ -147,7 +147,7 @@ form {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center align the form elements */
+  align-items: center; 
 }
 
 form h2 {
@@ -155,14 +155,14 @@ form h2 {
 }
 
 form input {
-  width: 80%; /* Adjust the width of input fields */
-  max-width: 400px; /* Ensure it doesn't get too wide */
+  width: 80%; 
+  max-width: 400px; 
   padding: 10px;
   margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 25px;
   background-color: #FFFFFF;
-  text-align: center; /* Center align the text inside input fields */
+  text-align: center; 
 }
 
 .add-button {
@@ -170,7 +170,7 @@ form input {
 }
 
 .search-results-container {
-  display: none; /* Initially hidden */
+  display: none; 
   background-color: #F4F0F0;
   padding: 20px;
   border-radius: 15px;
@@ -178,7 +178,7 @@ form input {
 }
 
 .search-results-container.active {
-  display: block; /* Displayed when active */
+  display: block; 
 }
 
 .results-heading {
@@ -193,7 +193,7 @@ form input {
   text-align: center;
 }
 
-/* Movies list styling */
+
 .movies-list {
   padding: 20px;
 }
@@ -224,7 +224,7 @@ form input {
   color: #333;
 }
 
-/* Styles for the tech logos and footer */
+
 .tech-container {
   text-align: center;
   margin-top: 40px;
@@ -238,7 +238,7 @@ form input {
 }
 
 .tech-logos img {
-  width: 80px; /* Ensure all logos are the same size */
+  width: 80px; 
   height: 80px;
   object-fit: contain;
 }
@@ -287,7 +287,7 @@ footer .github-icon img {
   }
 
   .tech-logos img {
-    width: 60px; /* Adjust size for smaller screens */
+    width: 60px; 
     height: 60px;
   }
 }
