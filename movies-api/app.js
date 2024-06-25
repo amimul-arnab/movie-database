@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -17,11 +17,10 @@ if (!uri) {
 }
 
 const client = new MongoClient(uri, {
-    serverApi: {
-        version: ServerApiVersion.v1,
-        strict: true,
-        deprecationErrors: true,
-    }
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    ssl: true,
+    tlsAllowInvalidCertificates: true // Add this line to bypass certificate validation (not recommended for production)
 });
 
 let db;
@@ -29,11 +28,12 @@ let db;
 async function connectToMongoDB() {
     try {
         await client.connect();
-        db = client.db("sample_mflix"); // Use 'sample_mflix' instead of 'moviesDB'
+        db = client.db("sample_mflix");
 
         defineRoutes();
     } catch (error) {
         console.error('Error connecting to MongoDB:', error.message);
+        process.exit(1); // Exit the process with an error
     }
 }
 
