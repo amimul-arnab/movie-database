@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F2F2F2;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.main-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin: 20px auto;
+  max-width: 800px;
+}
+
+.search-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.search-bar-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  width: calc(100% - 120px); /* Adjusted width to make space for the search button */
+  padding: 15px;
+  margin-right: 10px; /* Add space between search bar and button */
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #F4F0F0;
+  font-size: 16px;
+}
+
+.search-button {
+  background-color: #A43AF8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 15px 20px; /* Matching the padding of the search bar */
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #8a2fc9;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filter-dropdown {
+  background-color: #A43AF8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  appearance: none;
+}
+
+.filter-dropdown:hover {
+  background-color: #8a2fc9;
+}
+
+button, .filter-button, .generate-button, .add-button {
+  background-color: #A43AF8;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover, .filter-button:hover, .generate-button:hover, .add-button:hover {
+  background-color: #8a2fc9;
+}
+
+input, .search-bar {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #F4F0F0;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  width: auto;
+}
+
+h1, h2 {
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.header img {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 0;
+}
+
+#movies-list {
+  background-color: #F4F0F0;
+  padding: 20px;
+  border-radius: 15px;
+  list-style-type: none;
+}
+
+form {
+  background-color: #F4F0F0;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the form elements */
+}
+
+form h2 {
+  text-align: center;
+}
+
+form input {
+  width: 80%; /* Adjust the width of input fields */
+  max-width: 400px; /* Ensure it doesn't get too wide */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  background-color: #FFFFFF;
+  text-align: center; /* Center align the text inside input fields */
+}
+
+.add-button {
+  margin-top: 20px;
+}
+
+.search-results-container {
+  display: none; /* Initially hidden */
+  background-color: #F4F0F0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+
+.search-results-container.active {
+  display: block; /* Displayed when active */
+}
+
+.results-heading {
+  text-align: center;
+}
+
+.add-movie-container {
+  background-color: #F4F0F0;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Movies list styling */
+.movies-list {
+  padding: 20px;
+}
+
+.movie-item {
+  background-color: #f4f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.movie-item h3 {
+  margin-top: 0;
+}
+
+.movie-item p {
+  margin: 5px 0;
+}
+
+/* Intro section */
+.intro {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.intro p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Styles for the tech logos and footer */
+.tech-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.tech-logos {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.tech-logos img {
+  width: 80px; /* Ensure all logos are the same size */
+  height: 80px;
+  object-fit: contain;
+}
+
+footer {
+  background-color: #444;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer .github-icon {
+  margin-top: 10px;
+}
+
+footer .github-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .search-bar-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar {
+    margin-bottom: 10px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .filter-dropdown {
+    margin-bottom: 10px;
+  }
+
+  .tech-logos img {
+    width: 60px; /* Adjust size for smaller screens */
+    height: 60px;
+  }
+}
