@@ -10,7 +10,7 @@ function App() {
 
   const fetchMovies = async (filter, query) => {
     try {
-      const response = await fetch(`http://localhost:3000/movies?${filter}=${query}`);
+      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies?${filter}=${query}`);
       const data = await response.json();
       console.log('Fetched movies:', data);
       setMovies(data);
@@ -22,7 +22,7 @@ function App() {
 
   const generateRandomMovie = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/movies/random`);
+      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies/random`);
       const data = await response.json();
       console.log('Generated random movie:', data);
       setMovies([data]);
@@ -34,7 +34,7 @@ function App() {
 
   const addMovie = async (movie) => {
     try {
-      const response = await fetch(`http://localhost:3000/movies`, {
+      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -86,8 +86,8 @@ function App() {
           <div className="button-group">
             <select className="filter-dropdown" value={filter} onChange={handleFilterChange}>
               <option value="title">Title</option>
-              <option value="director">Director</option>
-              <option value="genre">Genre</option>
+              <option value="directors">Directors</option>
+              <option value="genres">Genres</option>
               <option value="year">Year</option>
             </select>
             <button className="generate-button" onClick={generateRandomMovie}>Generate Random</button>
