@@ -181,10 +181,38 @@ The application includes the following media query to ensure responsiveness:
 }
 \`\`\`
 
+## Useful Commands if needed
+
+To check the backend API for fetching data from MongoDB, you can run the commands on your local machine. 
+Ensure all necessary packages are installed correctly. 
+
+(terminal 1)
+cd movies.api
+node app.js
+
+(terminal 2)
+Type in the following commands 
+
+curl "http://localhost:3000/movies?title=Inception" | jq
+curl "http://localhost:3000/movies?director=Christopher+Nolan" | jq
+curl "http://localhost:3000/movies?genre=Sci-Fi" | jq
+curl "http://localhost:3000/movies?year=2010" | jq
+
+You should be able to see the requests in real time in the terminal. 
+
+To view messages in the webpage, simply open inspect element and view the console logs to see data being fetched from the database servers. 
+
+(terminal 3)
+cd movies-ui
+npm start 
+
+Type anything in the search bar and the fetch functions should retrieve the data. 
+
+
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any changes.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. 

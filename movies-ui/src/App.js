@@ -10,11 +10,16 @@ function App() {
 
   const fetchMovies = async (filter, query) => {
     try {
-      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies?${filter}=${query}`);
-      const data = await response.json();
-      console.log('Fetched movies:', data);
-      setMovies(data);
-      setShowResults(true);
+      console.log(`Fetching movies with filter: ${filter} and query: ${query}`);
+      const response = await fetch(`http://localhost:3000/movies?${filter}=${query}`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Fetched movies:', data);
+        setMovies(data);
+        setShowResults(true);
+      } else {
+        console.error('Error fetching movies:', response.status);
+      }
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
@@ -22,11 +27,16 @@ function App() {
 
   const generateRandomMovie = async () => {
     try {
-      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies/random`);
-      const data = await response.json();
-      console.log('Generated random movie:', data);
-      setMovies([data]);
-      setShowResults(true);
+      console.log('Generating random movie');
+      const response = await fetch(`http://localhost:3000/movies/random`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Generated random movie:', data);
+        setMovies([data]);
+        setShowResults(true);
+      } else {
+        console.error('Error generating random movie:', response.status);
+      }
     } catch (error) {
       console.error('Error generating random movie:', error);
     }
@@ -34,15 +44,21 @@ function App() {
 
   const addMovie = async (movie) => {
     try {
-      const response = await fetch(`https://<your-render-app-name>.onrender.com/movies`, {
+      console.log('Adding movie:', movie);
+      const response = await fetch(`http://localhost:3000/movies`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(movie),
       });
-      const data = await response.json();
-      setMovies((prevMovies) => [...prevMovies, data]);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Added movie:', data);
+        setMovies((prevMovies) => [...prevMovies, data]);
+      } else {
+        console.error('Error adding movie:', response.status);
+      }
     } catch (error) {
       console.error('Error adding movie:', error);
     }
@@ -107,9 +123,10 @@ function App() {
               const form = e.target;
               const movie = {
                 title: form.title.value,
-                directors: form.directors.value.split(',').map(director => director.trim()), // Split and trim directors into an array
-                genres: form.genres.value.split(',').map(genre => genre.trim()), // Split and trim genres into an array
+                directors: form.directors.value.split(',').map(director => director.trim()),
+                genres: form.genres.value.split(',').map(genre => genre.trim()),
                 year: parseInt(form.year.value),
+                fullplot: form.fullplot.value,
               };
               addMovie(movie);
               form.reset();
@@ -119,6 +136,7 @@ function App() {
             <input type="text" id="directors" name="directors" placeholder="Directors (comma separated)" required />
             <input type="text" id="genres" name="genres" placeholder="Genres (comma separated)" required />
             <input type="number" id="year" name="year" placeholder="Year" required />
+            <input type="text" id="fullplot" name="fullplot" placeholder="Description" required />
             <button type="submit" className="add-button">ADD MOVIE</button>
           </form>
         </div>

@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const bodyParser = require('body-parser');
@@ -17,8 +16,7 @@ if (!uri) {
 }
 
 const client = new MongoClient(uri, {
-    ssl: true,
-    tlsAllowInvalidCertificates: true // Add this line to bypass certificate validation (not recommended for production)
+    ssl: true
 });
 
 let db;
@@ -31,7 +29,7 @@ async function connectToMongoDB() {
         defineRoutes();
     } catch (error) {
         console.error('Error connecting to MongoDB:', error.message);
-        process.exit(1); // Exit the process with an error
+        process.exit(1);
     }
 }
 
@@ -43,12 +41,12 @@ function defineRoutes() {
     });
 
     app.get('/movies', async (req, res) => {
-        const { title, director, genre, year } = req.query;
+        const { title, directors, genres, year } = req.query;
         const query = {};
 
         if (title) query.title = { $regex: title, $options: 'i' };
-        if (director) query.director = { $regex: director, $options: 'i' };
-        if (genre) query.genre = { $regex: genre, $options: 'i' };
+        if (directors) query.directors = { $regex: directors, $options: 'i' };
+        if (genres) query.genres = { $regex: genres, $options: 'i' };
         if (year) query.year = parseInt(year);
 
         try {
