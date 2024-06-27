@@ -11,7 +11,7 @@ function App() {
   const fetchMovies = async (filter, query) => {
     try {
       console.log(`Fetching movies with filter: ${filter} and query: ${query}`);
-      const response = await fetch(`http://localhost:3000/movies?${filter}=${query}`);
+      const response = await fetch(`https://movie-database-six-chi.vercel.app/movies?${filter}=${query}`);
       if (response.ok) {
         const data = await response.json();
         console.log('Fetched movies:', data);
@@ -28,7 +28,7 @@ function App() {
   const generateRandomMovie = async () => {
     try {
       console.log('Generating random movie');
-      const response = await fetch(`http://localhost:3000/movies/random`);
+      const response = await fetch(`https://movie-database-six-chi.vercel.app/movies/random`);
       if (response.ok) {
         const data = await response.json();
         console.log('Generated random movie:', data);
@@ -45,7 +45,7 @@ function App() {
   const addMovie = async (movie) => {
     try {
       console.log('Adding movie:', movie);
-      const response = await fetch(`http://localhost:3000/movies`, {
+      const response = await fetch(`https://movie-database-six-chi.vercel.app/movies`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
