@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import MoviesList from './components/MoviesList';
 
@@ -8,10 +8,20 @@ function App() {
   const [query, setQuery] = useState('');
   const [showResults, setShowResults] = useState(false);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetch('https://movie-database-ch9m.onrender.com/')
+        .then(response => console.log('Keep-alive ping successful'))
+        .catch(error => console.error('Keep-alive ping failed:', error));
+    }, 5 * 60 * 1000); // Ping every 5 minutes
+
+    return () => clearInterval(interval);
+  }, []);
+
   const fetchMovies = async (filter, query) => {
     try {
       console.log(`Fetching movies with filter: ${filter} and query: ${query}`);
-      const response = await fetch(`http://localhost:3000/movies?${filter}=${query}`);
+      const response = await fetch(`https://movie-database-ch9m.onrender.com/movies?${filter}=${query}`);
       if (response.ok) {
         const data = await response.json();
         console.log('Fetched movies:', data);
@@ -28,7 +38,7 @@ function App() {
   const generateRandomMovie = async () => {
     try {
       console.log('Generating random movie');
-      const response = await fetch(`http://localhost:3000/movies/random`);
+      const response = await fetch(`https://movie-database-ch9m.onrender.com/movies/random`);
       if (response.ok) {
         const data = await response.json();
         console.log('Generated random movie:', data);
@@ -45,7 +55,7 @@ function App() {
   const addMovie = async (movie) => {
     try {
       console.log('Adding movie:', movie);
-      const response = await fetch(`http://localhost:3000/movies`, {
+      const response = await fetch(`https://movie-database-ch9m.onrender.com/movies`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
