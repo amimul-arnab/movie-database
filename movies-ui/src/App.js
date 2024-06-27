@@ -79,7 +79,7 @@ function App() {
       </header>
       <div className="intro">
         <p>
-          Welcome! This application uses a RESTful API to fetch data from the sample Mflix database from MongoDB. Not all movies can be found, but you can add movies using the feature below. Feel free to search and use filters to find movies by category.
+          Welcome! This application uses a RESTful API to fetch data from the sample Mflix database from MongoDB. Not all movies can be found, but you can add movies using the feature below. Feel free to search and use filters to find movies by category. To view the backend logs and test the REST API, click <a href="https://movie-database-ch9m.onrender.com" target="_blank" rel="noopener noreferrer">here</a>.
         </p>
       </div>
       <div className="content">

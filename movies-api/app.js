@@ -37,7 +37,19 @@ function defineRoutes() {
     const moviesCollection = () => db.collection('movies');
 
     app.get('/', (req, res) => {
-        res.send('Successfully connected to MongoDB!');
+        res.send(`
+            <html>
+                <body>
+                    <h1>Successfully connected to MongoDB!</h1>
+                    <p>To test the API endpoints, you can go on <a href="https://www.postman.com/">Postman</a> and test the following:</p>
+                    <ul>
+                        <li>Root: <a href="https://movie-database-ch9m.onrender.com/">https://movie-database-ch9m.onrender.com/</a></li>
+                        <li>Get Movies: <a href="https://movie-database-ch9m.onrender.com/movies">https://movie-database-ch9m.onrender.com/movies</a></li>
+                        <li>Get Random Movie: <a href="https://movie-database-ch9m.onrender.com/movies/random">https://movie-database-ch9m.onrender.com/movies/random</a></li>
+                    </ul>
+                </body>
+            </html>
+        `);
     });
 
     app.get('/movies', async (req, res) => {
@@ -80,7 +92,7 @@ function defineRoutes() {
     });
 
     const port = process.env.PORT || 3000;
-    console.log(`Starting server on port: ${port}`); // Add this line for debugging
+    console.log(`Starting server on port: ${port}`);
     app.listen(port, '0.0.0.0', () => {
         console.log(`Server running on http://localhost:${port}`);
     });
