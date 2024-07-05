@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -43,9 +43,9 @@ function defineRoutes() {
                     <h1>Successfully connected to MongoDB!</h1>
                     <p>To test the API endpoints, you can go on <a href="https://www.postman.com/">Postman</a> and test the following:</p>
                     <ul>
-                        <li>Root: <a href="https://movie-database-ch9m.onrender.com/">https://movie-database-ch9m.onrender.com/</a></li>
-                        <li>Get Movies: <a href="https://movie-database-ch9m.onrender.com/movies">https://movie-database-ch9m.onrender.com/movies</a></li>
-                        <li>Get Random Movie: <a href="https://movie-database-ch9m.onrender.com/movies/random">https://movie-database-ch9m.onrender.com/movies/random</a></li>
+                        <li>Root: <a href="http://localhost:3000/">http://localhost:3000/</a></li>
+                        <li>Get Movies: <a href="http://localhost:3000/movies">http://localhost:3000/movies</a></li>
+                        <li>Get Random Movie: <a href="http://localhost:3000/movies/random">http://localhost:3000/movies/random</a></li>
                     </ul>
                 </body>
             </html>
@@ -53,13 +53,17 @@ function defineRoutes() {
     });
 
     app.get('/movies', async (req, res) => {
-        const { title, directors, genres, year } = req.query;
         const query = {};
 
-        if (title) query.title = { $regex: title, $options: 'i' };
-        if (directors) query.directors = { $regex: directors, $options: 'i' };
-        if (genres) query.genres = { $regex: genres, $options: 'i' };
-        if (year) query.year = parseInt(year);
+        for (const key in req.query) {
+            if (req.query.hasOwnProperty(key)) {
+                if (key === '_id') {
+                    query[key] = new ObjectId(req.query[key]);
+                } else {
+                    query[key] = { $regex: req.query[key], $options: 'i' };
+                }
+            }
+        }
 
         try {
             const movies = await moviesCollection().find(query).limit(10).toArray();
