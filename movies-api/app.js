@@ -43,9 +43,15 @@ function defineRoutes() {
                     <h1>Successfully connected to MongoDB!</h1>
                     <p>To test the API endpoints, you can go on <a href="https://www.postman.com/">Postman</a> and test the following:</p>
                     <ul>
-                        <li>Root: <a href="http://localhost:3000/">http://localhost:3000/</a></li>
-                        <li>Get Movies: <a href="http://localhost:3000/movies">http://localhost:3000/movies</a></li>
-                        <li>Get Random Movie: <a href="http://localhost:3000/movies/random">http://localhost:3000/movies/random</a></li>
+                        <li>Root: <a href="https://movie-database-ch9m.onrender.com/">https://movie-database-ch9m.onrender.com/</a></li>
+                        <li>Get Movies: <a href="https://movie-database-ch9m.onrender.com/movies">https://movie-database-ch9m.onrender.com/movies</a></li>
+                        <li>Get Random Movie: <a href="https://movie-database-ch9m.onrender.com/movies/random">https://movie-database-ch9m.onrender.com/movies/random</a></li>
+                        <li>Get Movies by ID: <a href="https://movie-database-ch9m.onrender.com/movies?_id=573a1390f29313caabcd50e5">https://movie-database-ch9m.onrender.com/movies?_id=573a1390f29313caabcd50e5</a></li>
+                        <li>Get Movies by Title (e.g., Batman): <a href="https://movie-database-ch9m.onrender.com/movies?title=Batman">https://movie-database-ch9m.onrender.com/movies?title=Batman</a></li>
+                        <li>Get Movies by Genre (e.g., Action): <a href="https://movie-database-ch9m.onrender.com/movies?genres=Action">https://movie-database-ch9m.onrender.com/movies?genres=Action</a></li>
+                        <li>Get Movies by Cast (e.g., Keanu Reeves): <a href="https://movie-database-ch9m.onrender.com/movies?cast=Keanu%20Reeves">https://movie-database-ch9m.onrender.com/movies?cast=Keanu%20Reeves</a></li>
+                        <li>Get Movies by Year (e.g., 2002): <a href="https://movie-database-ch9m.onrender.com/movies?year=2002">https://movie-database-ch9m.onrender.com/movies?year=2002</a></li>
+                        <li>Get Movies by Director (e.g., Christopher Nolan): <a href="https://movie-database-ch9m.onrender.com/movies?directors=Christopher%20Nolan">https://movie-database-ch9m.onrender.com/movies?directors=Christopher%20Nolan</a></li>
                     </ul>
                 </body>
             </html>
